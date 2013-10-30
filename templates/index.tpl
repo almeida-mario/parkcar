@@ -5,9 +5,9 @@
         <title>{$smarty.const.SISTEMA}</title>
         <link rel="shortcut icon" href="img/favicon.ico" />
         <link href="{$smarty.const.CSS}style.css" rel="stylesheet" type="text/css" />
-        <link href="{$smarty.const.JQUERY}css/cantina/jquery-ui-cantina.custom.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-1.9.0.js"></script>
-        <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-ui-1.10.0.custom.js"></script>
+        <link href="{$smarty.const.JQUERY}css/parkcar/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-ui-1.10.3.custom.js"></script>
         <script type="text/javascript" src="{$smarty.const.JS}login.js"></script>
         <script type="text/javascript" src="{$smarty.const.JS}sistema.js"></script>
     </head>
