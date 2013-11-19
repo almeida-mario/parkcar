@@ -38,7 +38,7 @@
                 <div class="suporte">
                     <a href="javascript:void(0)">FALAR COM O SUPORTE</a>
                 </div><!--suporte-->
-                Tia da Cantina<br />
+                {$smarty.const.SISTEMA}<br />
                 Direitos Reservados &copy;2013
             </div><!--footer-->
         </div><!--login-->

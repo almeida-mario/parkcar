@@ -11,10 +11,10 @@ class sessao extends sistema {
 
         parent::__construct($dsn, $username, $passwd, $options);
 
-        session_start();
+          session_start();
 
         if (!isset($_SESSION['SISTEMAWEB'])) {
-            header("Location: /cantina/index.php?msg=sessaoexp");
+            header("Location: /parkcar/index.php?msg=sessaoexp");
             exit;
         }
     }

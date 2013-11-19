@@ -17,10 +17,10 @@ if (!defined('DS')) {
 
 if (!defined('APP_ROOT')) {
     
-    define("APP_ROOT", $_SERVER['DOCUMENT_ROOT'] . implode('/', array_slice(explode('/', $_SERVER['PHP_SELF']), 0, -2)) . DS . 'parkcar' . DS);
-    
+    define("APP_ROOT",str_replace('/parkcar','',$_SERVER['DOCUMENT_ROOT'] . implode('/', array_slice(explode('/', $_SERVER['PHP_SELF']), 0, -2)) . DS . 'parkcar' . DS));
 
 }
+
 
 if(!defined('APP_URL')){
     
@@ -39,7 +39,7 @@ $objSmarty->setCompileDir(APP_ROOT . 'cache' . DS . 'templates_c');
 $objSmarty->setTemplateDir(APP_ROOT . 'templates');
 $objSmarty->setCacheDir(APP_ROOT . 'cache');
 
-define("SISTEMA","SiCar - Controle de Acesso de Veículos");
+define("SISTEMA","ParkCar - Controle de Acesso de Veículos");
 define("CSS", APP_URL . 'css/');
 define("JS", APP_URL . 'js/');
 define("IMG", APP_URL . 'img/');
@@ -50,7 +50,7 @@ define("JQUERY", APP_URL . 'library/jquery/');
 //mysql=1 ; postgresql=2 ; oracle =3; 
 
 $sgbd = 1;
-define("DB_NAME", "loja");
+define("DB_NAME", "parkcar");
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "7777");
