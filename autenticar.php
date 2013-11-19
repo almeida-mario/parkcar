@@ -19,7 +19,7 @@ $nologin = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"h
     <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" />
 	<meta http-equiv=\"Cache-Control\" content=\"no-cache, no-store\" />
 	<meta http-equiv=\"Pragma\" content=\"no-cache, no-store\" />
-	<meta http-equiv=\"refresh\" content=\"2;URL=/cantina/index.php\" />
+	<meta http-equiv=\"refresh\" content=\"2;URL=/parkcar/index.php\" />
 	
 	<title>" . SISTEMA . " &copy; - Carregando Sistema...</title>
 	
@@ -52,7 +52,7 @@ $screen = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"ht
     <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" />
 	<meta http-equiv=\"Cache-Control\" content=\"no-cache, no-store\" />
 	<meta http-equiv=\"Pragma\" content=\"no-cache, no-store\" />
-	<meta http-equiv=\"refresh\" content=\"2;URL=/cantina/modulos/controle.php\" />
+	<meta http-equiv=\"refresh\" content=\"2;URL=/parkcar/modulos/parkcar.controle.php\" />
 	
 	<title>" . SISTEMA . " &copy; - Carregando Sistema...</title>
 	
