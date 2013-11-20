@@ -21,16 +21,11 @@ class sessao extends sistema {
 
     public function montaSessao() {
 
-        $this->setIdUsuario($_SESSION["SISTEMAWEB"]["DADOS"]["IDUSUARIO"][0]);
+        $this->setIdUsuario($_SESSION["SISTEMAWEB"]["DADOS"]["USER_ID"][0]);
 
         // Dados do Cliente;
         $_SESSION["SISTEMAWEB"]["DADOS"] = $this->dadosUser();
-        // Módulos do Usuário;
-        $_SESSION["SISTEMAWEB"]["MODULOS"] = $this->modulos();
-        // Permissões do Usuário;
-        $_SESSION["SISTEMAWEB"]["PERMISSOES"] = $this->permissoes();
-        // Menus do Usuário
-        $_SESSION["SISTEMAWEB"]["MENUS"] = $this->menus();
+
     }
     
 }

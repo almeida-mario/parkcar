@@ -27,21 +27,14 @@ $objSessao->montaSessao();
  $log_data = date('d/m/Y H:m:s');
  
  
- $objSistema->setIdUsuario($_SESSION["SISTEMAWEB"]["DADOS"]["IDUSUARIO"][0]);
- $dadospager = $objSistema->infoUrl($url);
- 
+ $objSistema->setIdUsuario($_SESSION["SISTEMAWEB"]["DADOS"]["USER_ID"][0]);
+
 
  switch($url){
  
   case 'parkcar.controle.php':
-  
-  
-     
-  
-     $objSmarty->assign("KEYMODULO", $dadosPager["IDMODULO"][0]);
-     $objSmarty->assign('MODULOS', $_SESSION["SISTEMAWEB"]["MODULOS"]);
-     $objSmarty->assign('MENUS', $_SESSION["SISTEMAWEB"]["MENUS"]);
-     $objSmarty->assign('PERMISSOES', $_SESSION["SISTEMAWEB"]["PERMISSOES"]);
+ 
+     $objSmarty->assign('DADOS', $_SESSION["SISTEMAWEB"]["DADOS"]);
 	 $objSmarty->display("home.tpl");
 	 
 	 exit;

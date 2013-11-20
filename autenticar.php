@@ -84,44 +84,26 @@ session_start();
 if (!isset($SESSION['SISTEMAWEB'])) {
 
     $logar = $objSistema->logarUser($_POST["usuario"], $_POST["senha"]);
-
-    if ($logar["EXISTE"][0] != 1) {
+	
+	
+	if ($logar["EXISTE"][0] != 1) {
 
         echo $nologin;
         exit;
     }
 
-    $objSistema->setIdUsuario($logar["IDUSUARIO"][0]);
+    $objSistema->setIdUsuario($logar["USER_ID"][0]);
     $dados = $objSistema->dadosUser();
-    $expSenha = $objSistema->calcula_dias(date("d/m/Y"), $dados["DATA_SENHA_EXP"][0]);
-
-    if ($expSenha > 0) {
-
-        // Dados do Cliente;
-
-        $_SESSION["SISTEMAWEB"]["DADOS"] = $dados;
-
-        // Módulos do Usuário;
-
-        $_SESSION["SISTEMAWEB"]["MODULOS"] = $objSistema->modulos();
-
-        // Permissões do Usuário;
-
-        $_SESSION["SISTEMAWEB"]["PERMISSOES"] = $objSistema->permissoes();
-
-        // Menus do Usuário
-
-        $_SESSION["SISTEMAWEB"]["MENUS"] = $objSistema->menus();
-
-        echo $screen;
-        
-    } else {
-
-        echo"SENHA EXPIRADA!!!";
-    }
-} else {
+	
+	
+    // Dados do Cliente;
+    $_SESSION["SISTEMAWEB"]["DADOS"] = $dados;
 
     echo $screen;
+      
+} else {
+
+    echo $nologin;
 
     
 }

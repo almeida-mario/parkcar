@@ -58,15 +58,13 @@ $(document).ready(function() {
 <br />
 <div class="layout">
   <div class="page">
-  
-  
-    {section name=a loop=$MODULOS.IDMODULO}
-    
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}ocorrencias.png" /></br>{$MODULOS.IDMODULO[a]} - {$MODULOS.MOD_NOME[a]}  </a> </div>
-    
-    {/section}
-  
-    
+      
+        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}configuracao.png" /></br>Cadastro - Usuários  </a> </div>
+        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}preco.png" /></br>Cadastro - Tabela de Preços</a> </div>
+        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}veiculos.png" /></br>Cadastro - Tipos de Veículos</a> </div>
+        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}estacionamento.png" /></br>Controlar Estacionamento</a> </div>
+        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}relatorio.png" /></br>Relatórios</a></div>
+     
        
   </div>
   
