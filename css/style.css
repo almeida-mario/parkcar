@@ -9,6 +9,22 @@ html {
 	padding: 0;
 }
 
+.field{
+	display:block;
+	margin: 10px 0px 0px 10px;
+	float:left;
+	text-align:right;
+	font-weight:bold;
+}
+
+.rotulo{
+	display:block;
+	float:left;
+	width:130px;
+	text-align:left;
+	margin-left:5px;
+}
+
 .clear {
 	clear:both;
 	}
@@ -310,8 +326,6 @@ select {
 	text-decoration:underline;
 }
 
-.field{
-	border:1px solid #c0c0c0;
-}
+
 
 

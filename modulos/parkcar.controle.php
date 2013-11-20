@@ -12,15 +12,16 @@ $objSessao = new sessao(DB_DNS, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => 
 $objSistema = new sistema(DB_DNS, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => DB_PERSISTENT));
 $objSessao->montaSessao();
 
-
- $url = $_SERVER['PHP_SELF'];
- $length = strlen($url);
- $posicao = strpos($url,'parkcar.', 5);
- $url = substr($url, $posicao, $length);
+ if(!$_REQUEST["url"]){
+	 
+	 $url = $_SERVER['PHP_SELF'];
+     $length = strlen($url);
+     $posicao = strpos($url,'parkcar.', 5);
+     $url = substr($url, $posicao, $length);
+ }
  
- $user = strtolower($_SESSION['SISTEMAWEB']['DADOS']['NOME'][0]);
+ $user = strtolower($_SESSION['SISTEMAWEB']['DADOS']['USER_NAME'][0]);
  $user = explode(' ', $user);
- 
  $objSmarty->assign('USER', ucwords($user[0] . ' ' . $user[count($user) - 1]));
  
  $log_user = $_SESSION['SISTEMAWEB']['DADOS']['LOGIN'][0];
@@ -29,33 +30,30 @@ $objSessao->montaSessao();
  
  $objSistema->setIdUsuario($_SESSION["SISTEMAWEB"]["DADOS"]["USER_ID"][0]);
 
-
-
- //exit;
-
  switch($url){
  
   case 'parkcar.controle.php':
  
      $objSmarty->assign('URL1',base64_encode('parkcar.cadastro.usuarios.php'));
+	 $objSmarty->assign('URL2',base64_encode('parkcar.cadastro.precos.php'));
+	 $objSmarty->assign('URL3',base64_encode('parkcar.cadastro.tipo_veiculos.php'));
+	 $objSmarty->assign('URL4',base64_encode('parkcar.controle.estacionamento.php'));
+	 $objSmarty->assign('URL5',base64_encode('parkcar.relatorio.caixa.php'));
      $objSmarty->assign('DADOS', $_SESSION["SISTEMAWEB"]["DADOS"]);
 	 $objSmarty->display("home.tpl");
 	 
 	 exit;
 	  
   break;
-  
+
   
   default:
-   
-     $perms_salvar = $dadosPager["CADASTRAR"][0];
-     $perms_alterar = $dadosPager["ALTERAR"][0];
-     $perms_excluir = $dadosPager["EXCLUIR"][0];
-	 
-	 $objSmarty->assign("KEYMODULO", $dadosPager["IDMODULO"][0]);
-     $objSmarty->assign('MODULOS', $_SESSION["SISTEMAWEB"]["MODULOS"]);
-     $objSmarty->assign('MENUS', $_SESSION["SISTEMAWEB"]["MENUS"]);
-     $objSmarty->assign('PERMISSOES', $_SESSION["SISTEMAWEB"]["PERMISSOES"]);
+  
+     $pasta=APP_ROOT.'modulos/sistema/'.base64_decode($_REQUEST["url"]);
+      
+     $objSmarty->assign('DADOS', $_SESSION["SISTEMAWEB"]["DADOS"]);
+	
+	 include $pasta;
     
   break;	
 	

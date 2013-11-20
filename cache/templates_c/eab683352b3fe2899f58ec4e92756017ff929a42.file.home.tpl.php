@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-20 17:35:30
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-21 15:04:20
          compiled from "C:\xampp\htdocs\parkcar\templates\home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9262528ba25df03110-01499358%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eab683352b3fe2899f58ec4e92756017ff929a42' => 
     array (
       0 => 'C:\\xampp\\htdocs\\parkcar\\templates\\home.tpl',
-      1 => 1384983328,
+      1 => 1385060657,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'USER' => 0,
+    'URL1' => 0,
+    'URL2' => 0,
+    'URL3' => 0,
+    'URL4' => 0,
+    'URL5' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -80,15 +85,20 @@ logo.png" height="100px" style="margin-left:70px" /></div>
 <div class="layout">
   <div class="page">
       
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url=<?php echo $_smarty_tpl->tpl_vars['URL1']->value;?>
+"><img class="icone" src="<?php echo @constant('IMG');?>
 configuracao.png" /></br>Cadastro - Usuários  </a> </div>
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url=<?php echo $_smarty_tpl->tpl_vars['URL2']->value;?>
+"><img class="icone" src="<?php echo @constant('IMG');?>
 preco.png" /></br>Cadastro - Tabela de Preços</a> </div>
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url=<?php echo $_smarty_tpl->tpl_vars['URL3']->value;?>
+"><img class="icone" src="<?php echo @constant('IMG');?>
 veiculos.png" /></br>Cadastro - Tipos de Veículos</a> </div>
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url=<?php echo $_smarty_tpl->tpl_vars['URL4']->value;?>
+"><img class="icone" src="<?php echo @constant('IMG');?>
 estacionamento.png" /></br>Controlar Estacionamento</a> </div>
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url=<?php echo $_smarty_tpl->tpl_vars['URL5']->value;?>
+"><img class="icone" src="<?php echo @constant('IMG');?>
 relatorio.png" /></br>Relatórios</a></div>
      
        

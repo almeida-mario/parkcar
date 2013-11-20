@@ -23,6 +23,31 @@ $().ready(function(){
         } 
 	
     });
+	
+	
+	$('#bt_salva').button({
+			text: true,
+			icons: {
+				primary: 'ui-icon-check'
+			}
+		});
+		
+  $('#bt_del').button({
+		text: true,
+		icons: {
+			primary: 'ui-icon-trash'
+		}
+	});
+
+	
+   $('#bt_new').button({
+		text: true,
+		icons: {
+			primary: 'ui-icon-document'
+		}
+	});		
+	
+	
 });
 
 // Validador de erros;

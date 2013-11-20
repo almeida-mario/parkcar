@@ -45,11 +45,11 @@
 <div class="layout">
   <div class="page">
       
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}configuracao.png" /></br>Cadastro - Usuários  </a> </div>
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}preco.png" /></br>Cadastro - Tabela de Preços</a> </div>
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}veiculos.png" /></br>Cadastro - Tipos de Veículos</a> </div>
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}estacionamento.png" /></br>Controlar Estacionamento</a> </div>
-        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}relatorio.png" /></br>Relatórios</a></div>
+        <div class="thumb" > <a href="parkcar.controle.php?url={$URL1}"><img class="icone" src="{$smarty.const.IMG}configuracao.png" /></br>Cadastro - Usuários  </a> </div>
+        <div class="thumb" > <a href="parkcar.controle.php?url={$URL2}"><img class="icone" src="{$smarty.const.IMG}preco.png" /></br>Cadastro - Tabela de Preços</a> </div>
+        <div class="thumb" > <a href="parkcar.controle.php?url={$URL3}"><img class="icone" src="{$smarty.const.IMG}veiculos.png" /></br>Cadastro - Tipos de Veículos</a> </div>
+        <div class="thumb" > <a href="parkcar.controle.php?url={$URL4}"><img class="icone" src="{$smarty.const.IMG}estacionamento.png" /></br>Controlar Estacionamento</a> </div>
+        <div class="thumb" > <a href="parkcar.controle.php?url={$URL5}"><img class="icone" src="{$smarty.const.IMG}relatorio.png" /></br>Relatórios</a></div>
      
        
   </div>
