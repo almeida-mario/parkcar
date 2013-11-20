@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-20 16:50:01
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-20 17:35:30
          compiled from "C:\xampp\htdocs\parkcar\templates\home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9262528ba25df03110-01499358%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eab683352b3fe2899f58ec4e92756017ff929a42' => 
     array (
       0 => 'C:\\xampp\\htdocs\\parkcar\\templates\\home.tpl',
-      1 => 1384980598,
+      1 => 1384983328,
       2 => 'file',
     ),
   ),
@@ -43,21 +43,7 @@ js/jquery-ui-1.10.3.custom.js"></script>
 login.js"></script>
 <script type="text/javascript" src="<?php echo @constant('JS');?>
 sistema.js"></script>
-<script>
-$(document).ready(function() {
-
-});
-
-
- function icon(id){
-   
-    alert(id);	 
-	 
- }
- 
-</script>
 </head>
-
 <body >
 <div id="barra">
   <div id="logo"><img src="<?php echo @constant('IMG');?>
@@ -94,15 +80,15 @@ logo.png" height="100px" style="margin-left:70px" /></div>
 <div class="layout">
   <div class="page">
       
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
 configuracao.png" /></br>Cadastro - Usuários  </a> </div>
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
 preco.png" /></br>Cadastro - Tabela de Preços</a> </div>
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
 veiculos.png" /></br>Cadastro - Tipos de Veículos</a> </div>
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
 estacionamento.png" /></br>Controlar Estacionamento</a> </div>
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="<?php echo @constant('IMG');?>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="<?php echo @constant('IMG');?>
 relatorio.png" /></br>Relatórios</a></div>
      
        

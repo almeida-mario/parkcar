@@ -10,21 +10,7 @@
 <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}login.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}sistema.js"></script>
-<script>
-$(document).ready(function() {
-
-});
-
-
- function icon(id){
-   
-    alert(id);	 
-	 
- }
- 
-</script>
 </head>
-
 <body >
 <div id="barra">
   <div id="logo"><img src="{$smarty.const.IMG}logo.png" height="100px" style="margin-left:70px" /></div>
@@ -59,11 +45,11 @@ $(document).ready(function() {
 <div class="layout">
   <div class="page">
       
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}configuracao.png" /></br>Cadastro - Usuários  </a> </div>
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}preco.png" /></br>Cadastro - Tabela de Preços</a> </div>
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}veiculos.png" /></br>Cadastro - Tipos de Veículos</a> </div>
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}estacionamento.png" /></br>Controlar Estacionamento</a> </div>
-        <div class="thumb" > <a href="ocorrencia.html"><img class="icone" src="{$smarty.const.IMG}relatorio.png" /></br>Relatórios</a></div>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}configuracao.png" /></br>Cadastro - Usuários  </a> </div>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}preco.png" /></br>Cadastro - Tabela de Preços</a> </div>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}veiculos.png" /></br>Cadastro - Tipos de Veículos</a> </div>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}estacionamento.png" /></br>Controlar Estacionamento</a> </div>
+        <div class="thumb" > <a href="parkcar.controle.php?url="><img class="icone" src="{$smarty.const.IMG}relatorio.png" /></br>Relatórios</a></div>
      
        
   </div>

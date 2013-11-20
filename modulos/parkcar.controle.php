@@ -30,10 +30,14 @@ $objSessao->montaSessao();
  $objSistema->setIdUsuario($_SESSION["SISTEMAWEB"]["DADOS"]["USER_ID"][0]);
 
 
+
+ //exit;
+
  switch($url){
  
   case 'parkcar.controle.php':
  
+     $objSmarty->assign('URL1',base64_encode('parkcar.cadastro.usuarios.php'));
      $objSmarty->assign('DADOS', $_SESSION["SISTEMAWEB"]["DADOS"]);
 	 $objSmarty->display("home.tpl");
 	 
