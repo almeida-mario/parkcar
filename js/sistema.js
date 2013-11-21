@@ -47,6 +47,34 @@ $().ready(function(){
 		}
 	});		
 	
+   $('#bt_pesq').button({
+		text: true,
+		icons: {
+			primary: 'ui-icon-search'
+		}
+	});		
+	
+	
+	
+   $( "#dlg_usuarios" ).dialog({
+			autoOpen: true,
+			modal:true,
+			width: 600,
+			buttons: [
+				{
+					text: "Ok",
+					click: function() {
+						$( this ).dialog( "close" );
+					}
+				},
+				{
+					text: "Cancel",
+					click: function() {
+						$( this ).dialog( "close" );
+					}
+				}
+			]
+		});
 	
 });
 
