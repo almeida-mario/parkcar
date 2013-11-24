@@ -10,6 +10,7 @@ require_once ('../configs/config.inc.php');
 
 $objSessao = new sessao(DB_DNS, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => DB_PERSISTENT));
 $objSistema = new sistema(DB_DNS, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => DB_PERSISTENT));
+$objDataset = new dataset(DB_DNS, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => DB_PERSISTENT)); 
 $objSessao->montaSessao();
 
  if(!$_REQUEST["url"]){
@@ -19,6 +20,7 @@ $objSessao->montaSessao();
      $posicao = strpos($url,'parkcar.', 5);
      $url = substr($url, $posicao, $length);
  }
+ 
  
  $user = strtolower($_SESSION['SISTEMAWEB']['DADOS']['USER_NAME'][0]);
  $user = explode(' ', $user);

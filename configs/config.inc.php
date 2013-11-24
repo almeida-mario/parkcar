@@ -17,10 +17,9 @@ if (!defined('DS')) {
 
 if (!defined('APP_ROOT')) {
     
-    define("APP_ROOT",str_replace('/parkcar','',$_SERVER['DOCUMENT_ROOT'] . implode('/', array_slice(explode('/', $_SERVER['PHP_SELF']), 0, -2)) . DS . 'parkcar' . DS));
+    define("APP_ROOT",str_replace(array('/parkcar','/modulos'),'',$_SERVER['DOCUMENT_ROOT'] . implode('/', array_slice(explode('/', $_SERVER['PHP_SELF']), 0, -2)) . DS . 'parkcar' . DS));
 
 }
-
 
 if(!defined('APP_URL')){
     

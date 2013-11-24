@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-23 11:33:47
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-24 02:03:04
          compiled from "C:\xampp\htdocs\parkcar\templates\modulos\sistema\parkcar.cadastro.usuarios.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30267528e6a24c9f105-32122408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '85530cd516d1e34db92540fe353412c2e61e0656' => 
     array (
       0 => 'C:\\xampp\\htdocs\\parkcar\\templates\\modulos\\sistema\\parkcar.cadastro.usuarios.tpl',
-      1 => 1385220811,
+      1 => 1385254981,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_528e6a24cda2d9_06415251',
   'variables' => 
   array (
-    'JS' => 0,
     'USER' => 0,
   ),
   'has_nocache_code' => false,
@@ -42,7 +41,7 @@ js/jquery-1.9.1.js"></script>
 js/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript" src="<?php echo @constant('JS');?>
 sistema.js"></script>
-<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['JS']->value;?>
+<script type="text/javascript" src="<?php echo @constant('JS');?>
 parkcar.cadastro.usuarios.js"></script>
 <script type="text/javascript" src="<?php echo @constant('JS');?>
 jquery.ajaxSubmit.js"></script>
@@ -77,15 +76,15 @@ logo.png" height="100px" style="margin-left:70px" /></a></div>
         <h3 style="margin-left:15px;font-weight:bold">Informações Pessoais</h3>
         <div class="field">
           <label class="rotulo">Nome Completo:</label>
-          <input id="nome_user" type="text" alt="obrigatorio"class="campo" size="90" />
+          <input id="nome_user" name="nome_user" type="text" alt="obrigatorio"class="campo" size="90" />
         </div>
         <div class="field">
           <label class="rotulo">Login:</label>
-          <input id="login_user" type="text" alt="obrigatorio"  class="campo" size="55" />
+          <input id="login_user" name="login_user" type="text" alt="obrigatorio"  class="campo" size="55" />
         </div>
         <div class="field">
           <label class="rotulo">Senha:</label>
-          <input id="senha_user" type="password" alt="obrigatorio"  class="campo" size="55" />
+          <input id="senha_user" name="senha_user" type="password" alt="obrigatorio"  class="campo" size="55" />
         </div>
       </div>
       <!--formSistema-->

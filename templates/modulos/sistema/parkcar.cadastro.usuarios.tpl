@@ -9,7 +9,7 @@
 <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}sistema.js"></script>
-<script type="text/javascript" src="{$JS}parkcar.cadastro.usuarios.js"></script>
+<script type="text/javascript" src="{$smarty.const.JS}parkcar.cadastro.usuarios.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}jquery.ajaxSubmit.js"></script>
 
 </head>
@@ -39,15 +39,15 @@
         <h3 style="margin-left:15px;font-weight:bold">Informações Pessoais</h3>
         <div class="field">
           <label class="rotulo">Nome Completo:</label>
-          <input id="nome_user" type="text" alt="obrigatorio"class="campo" size="90" />
+          <input id="nome_user" name="nome_user" type="text" alt="obrigatorio"class="campo" size="90" />
         </div>
         <div class="field">
           <label class="rotulo">Login:</label>
-          <input id="login_user" type="text" alt="obrigatorio"  class="campo" size="55" />
+          <input id="login_user" name="login_user" type="text" alt="obrigatorio"  class="campo" size="55" />
         </div>
         <div class="field">
           <label class="rotulo">Senha:</label>
-          <input id="senha_user" type="password" alt="obrigatorio"  class="campo" size="55" />
+          <input id="senha_user" name="senha_user" type="password" alt="obrigatorio"  class="campo" size="55" />
         </div>
       </div>
       <!--formSistema-->
