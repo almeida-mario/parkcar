@@ -2,20 +2,34 @@
 
 
 $().ready(function(){
-  
-  
-    busca_dados("sistema/parkcar.cadastro.usuarios.php?case=1","#frm_usuario","#result_lista");
+    
+	 var url='sistema/parkcar.cadastro.usuarios.php';
+       
   
     $("#nome_user").focus();
   
     $('#bt_salva').click(function(){
       
         if(fn_validador('#frm_usuario','[alt=obrigatorio]')){
+			
+			var dados =$('#frm_usuario').serialize();
+			alert(dados);
             
-            $('#frm_login').submit();
+            executar(url,dados,2);
         }
           
     });
+	
+	
+	$('#bt_pesq').click(function(e) {
+         
+		 busca_dados(url+"?case=1","#frm_usuario","#result_lista");
+		 
+		 $('#dlg_usuarios').dialog( "open" );
+		 
+     });
+	
+	
   
   
     $('#usuario,#senha').focus(function(){
@@ -23,25 +37,29 @@ $().ready(function(){
         $(this).removeClass('ui-state-error');
                   
     });
+	
+	
+	
+	
+		
+   $( "#dlg_usuarios" ).dialog({
+			autoOpen: false,
+			modal:true,
+			width: 600,
+			buttons: [
+				{
+					text: "Ok",
+					click: function() {
+						$( this ).dialog( "close" );
+					}
+				},
+				{
+					text: "Cancel",
+					click: function() {
+						$( this ).dialog( "close" );
+					}
+				}
+			]
+		});
   
 });
-
-
-<!--Função para Retorno do Dados via Ajax-->
-
-function busca_dados(url,form,retorno){
-	
-  
-  var options = { 
-				target	: retorno,   // target element(s) to be updated with server response 
-				url		: url, // override for form's 'action' attribute 
-				type	: 'POST',
-						success:   function(resposta) {} // post-submit callback 
-			}; 	
-
-	$(form).ajaxSubmit(options); 
-	return false;
-  
-	
-}
-

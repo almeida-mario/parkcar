@@ -25,6 +25,16 @@ html {
 	margin-left:5px;
 }
 
+ .resultado { 
+ background:#FFFFFF;
+ display:block; 
+ overflow-y:scroll;
+ overflow-x: hidden; 
+ vertical-align:middle; 
+ cursor:pointer;  
+margin:0px auto 0px auto;
+ }
+ 
 .clear {
 	clear:both;
 	}

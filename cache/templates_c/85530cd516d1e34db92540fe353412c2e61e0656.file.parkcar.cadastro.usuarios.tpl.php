@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-24 02:03:04
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-26 17:10:03
          compiled from "C:\xampp\htdocs\parkcar\templates\modulos\sistema\parkcar.cadastro.usuarios.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30267528e6a24c9f105-32122408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '85530cd516d1e34db92540fe353412c2e61e0656' => 
     array (
       0 => 'C:\\xampp\\htdocs\\parkcar\\templates\\modulos\\sistema\\parkcar.cadastro.usuarios.tpl',
-      1 => 1385254981,
+      1 => 1385500201,
       2 => 'file',
     ),
   ),
@@ -43,8 +43,7 @@ js/jquery-ui-1.10.3.custom.js"></script>
 sistema.js"></script>
 <script type="text/javascript" src="<?php echo @constant('JS');?>
 parkcar.cadastro.usuarios.js"></script>
-<script type="text/javascript" src="<?php echo @constant('JS');?>
-jquery.ajaxSubmit.js"></script>
+
 
 </head>
 <body >
@@ -75,6 +74,7 @@ logo.png" height="100px" style="margin-left:70px" /></a></div>
       <div class="formSistema">
         <h3 style="margin-left:15px;font-weight:bold">Informações Pessoais</h3>
         <div class="field">
+          <input id="id_user" name="id_user" type="hidden" />
           <label class="rotulo">Nome Completo:</label>
           <input id="nome_user" name="nome_user" type="text" alt="obrigatorio"class="campo" size="90" />
         </div>
@@ -92,7 +92,7 @@ logo.png" height="100px" style="margin-left:70px" /></a></div>
       <div class="btForm">
         <button id="bt_salva" type="button">SALVAR</button>
         &nbsp;
-        <button id="bt_new"  type="button">LIMPAR</button>
+        <button id="bt_new"  type="reset">LIMPAR</button>
         &nbsp;
         <button id="bt_del" type="button">EXCLUIR</button>
         &nbsp;
@@ -111,7 +111,7 @@ logo.png" height="100px" style="margin-left:70px" /></a></div>
         <legend>LISTAGEM</legend>
         <table cellpadding="0" cellspacing="0" border="0"  width="100%" style="table-layout:fixed;text-align:center">
           <tr class="ui-state-hover" height="20px">
-            <td width="20%">ID USUÁRIO</td>
+            <td width="25%">ID USUÁRIO</td>
             <td>NOME COMPLETO</td>
           </tr>
         </table>

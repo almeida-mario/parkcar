@@ -10,7 +10,7 @@
 <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}sistema.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}parkcar.cadastro.usuarios.js"></script>
-<script type="text/javascript" src="{$smarty.const.JS}jquery.ajaxSubmit.js"></script>
+
 
 </head>
 <body >
@@ -38,6 +38,7 @@
       <div class="formSistema">
         <h3 style="margin-left:15px;font-weight:bold">Informações Pessoais</h3>
         <div class="field">
+          <input id="id_user" name="id_user" type="hidden" />
           <label class="rotulo">Nome Completo:</label>
           <input id="nome_user" name="nome_user" type="text" alt="obrigatorio"class="campo" size="90" />
         </div>
@@ -55,7 +56,7 @@
       <div class="btForm">
         <button id="bt_salva" type="button">SALVAR</button>
         &nbsp;
-        <button id="bt_new"  type="button">LIMPAR</button>
+        <button id="bt_new"  type="reset">LIMPAR</button>
         &nbsp;
         <button id="bt_del" type="button">EXCLUIR</button>
         &nbsp;
@@ -74,7 +75,7 @@
         <legend>LISTAGEM</legend>
         <table cellpadding="0" cellspacing="0" border="0"  width="100%" style="table-layout:fixed;text-align:center">
           <tr class="ui-state-hover" height="20px">
-            <td width="20%">ID USUÁRIO</td>
+            <td width="25%">ID USUÁRIO</td>
             <td>NOME COMPLETO</td>
           </tr>
         </table>
