@@ -41,6 +41,8 @@ class dataset extends PDO {
         } else {
 
             print_r($sql);
+			print_r($valores);
+			
         }
     }
 
@@ -50,7 +52,7 @@ class dataset extends PDO {
 
         $this->beginTransaction();
         $dados = $this->prepare($sql);
-
+        		
         for ($a = 0; $a < count($bind); ++$a) {
 
             $dados->bindParam(':v' . ($a + 1), $bind[$a]);

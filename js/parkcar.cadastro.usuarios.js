@@ -7,14 +7,19 @@ $().ready(function(){
        
   
     $("#nome_user").focus();
+	
+	$('#bt_new').click(function(){
+		
+		$('#id_user').val('');
+		
+	});
+	
   
     $('#bt_salva').click(function(){
       
         if(fn_validador('#frm_usuario','[alt=obrigatorio]')){
 			
-			var dados =$('#frm_usuario').serialize();
-			alert(dados);
-            
+			var dados =$('#frm_usuario').serialize();          
             executar(url,dados,2);
         }
           

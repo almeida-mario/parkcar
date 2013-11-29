@@ -40,15 +40,15 @@
         <div class="field">
           <input id="id_user" name="id_user" type="hidden" />
           <label class="rotulo">Nome Completo:</label>
-          <input id="nome_user" name="nome_user" type="text" alt="obrigatorio"class="campo" size="90" />
+          <input id="nome_user" name="nome_user" style="text-transform:uppercase" type="text" alt="obrigatorio" title="Campo Obrigatório." class="campo" size="90" />
         </div>
         <div class="field">
           <label class="rotulo">Login:</label>
-          <input id="login_user" name="login_user" type="text" alt="obrigatorio"  class="campo" size="55" />
+          <input id="login_user" name="login_user" type="text" alt="obrigatorio" title="Campo Obrigatório."  class="campo" size="55" />
         </div>
         <div class="field">
           <label class="rotulo">Senha:</label>
-          <input id="senha_user" name="senha_user" type="password" alt="obrigatorio"  class="campo" size="55" />
+          <input id="senha_user" name="senha_user" type="password" alt="obrigatorio"  title="Campo Obrigatório." class="campo" size="55" />
         </div>
       </div>
       <!--formSistema-->
@@ -83,6 +83,15 @@
       </fieldset>
     </form>
   </div>
+  
+  <div id='msg_dlg_alerta' title="Resultado de Operação" style='display:none;heigth=200px;margin-left:15px;'> <img src="{$smarty.const.IMAGENS}icons/icon_alerta.png" border="0" align="absmiddle" style="float:left;margin-top:25px"/><textarea rows="10" cols="48" id="msg" name="msg"></textarea> </div>   
+
+<div id='msg_dlg_ok' title="Resultado de Operação" style='display:none;heigth=200px'> <img src="{$smarty.const.IMAGENS}icons/ok.png" border="0" align="absmiddle" style="float:left;margin-top:25px"/><p id="msg_ok" style="font-weight:bold;text-align:center;font-size:14px;margin-top:30px"></p></div>
+
+<div id='msg_dlg_processo' title="Resultado de Operação" style='display:none;heigth=200px'> <img src="{$smarty.const.IMAGENS}icons/tempo.gif" border="0" align="absmiddle" style="float:left;margin-top:25px"/><p id="msg_processo" style="font-weight:bold;text-align:center;font-size:14px;margin-top:30px"></p></div>
+
+<div id='msg_dlg_decisao' title="Resultado de Operação" style='display:none;heigth=200px'> <img src="{$smarty.const.IMAGENS}icons/decisao.png" border="0" align="absmiddle" style="float:left;margin-top:25px"/><p id="msg_decisao" style="font-weight:bold;text-align:center;font-size:14px;margin-top:30px"></p></div>
+  
 </div>
 <div id="footer">
   <div class="suporte"> <a href="mailto:prog.almeida@gmail.com">FALAR COM O SUPORTE</a> </div>

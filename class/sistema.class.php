@@ -30,7 +30,7 @@ class sistema extends dataset {
     //Verifica se existe usuário loga no sistema;
     public function logarUser($login, $senha) {
 
-        $senha = md5($senha);
+        $senha = base64_encode($senha);
 
         return $this->smartset("select user_id,count(*) existe from tb_usuario where tb_usuario.login=:v1 and tb_usuario.senha=:v2", array($login, $senha), $this->debug);
     }

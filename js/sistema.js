@@ -55,6 +55,135 @@ $().ready(function(){
 	});		
 	
 	
+	<!-- Tratamento Mensagens de ERRO do Sistema:-->
+
+
+function msgOk(msg){
+	
+	
+	if(msg.length > 0){
+		$('#msg_ok').text(msg);
+	}else{
+		$('#msg_ok').text('Operação Realizada com Sucesso!!!');
+	}
+	
+	
+	$('#msg_dlg_ok').dialog({
+	 autoOpen:false,
+	 width: 400,
+	 bgiframe: true,
+	 resizable:false,
+	 modal: true
+   });
+   
+   $('#msg_dlg_ok').dialog('open');
+   
+   setTimeout(function(){
+	  $('#msg_dlg_ok').dialog('close')
+	}, 1500);
+	
+	
+}
+
+
+function startProcesso(msg){
+		
+	if(msg.length > 0){
+		$('#msg_processo').text(msg);
+	}else{
+		$('#msg_processo').text('Aguarde Processando!!!');
+	}
+	
+	
+	$('#msg_dlg_processo').dialog({
+	 autoOpen:false,
+	 width: 400,
+	 bgiframe: true,
+	 resizable:false,
+	 modal: true,
+	 closeOnEscape: false,
+	 dialogClass: "no-close"
+   });
+       
+   
+   $('#msg_dlg_processo').dialog('open');
+	
+}
+
+
+function stopProcesso(){
+
+  $('#msg_dlg_processo').dialog('close');	
+ 	
+}
+
+function msgAlerta(msg){
+
+    $('#msg').text(msg);
+	
+	$('#msg_dlg_alerta').dialog({
+	 autoOpen:false,
+	 width: 450,
+	 bgiframe: true,
+	 resizable:false,
+	 modal: true,
+	 buttons: {
+				OK: function() {
+					$(this).dialog('close');											
+				}
+	 }
+   });
+   
+  
+   
+   $('#msg_dlg_alerta').dialog('open');
+	
+} 
+
+
+
+function msgDecisao(msg,funcao){
+	
+	
+	if(msg.length > 0){
+		$('#msg_decisao').text(msg);
+	}else{
+		$('#msg_decisao').text('Deseja Realmente Excluir o Registro???');
+	}		
+
+	
+	$('#msg_dlg_decisao').dialog({
+	 autoOpen:false,
+	 width: 400,
+	 bgiframe: true,
+	 resizable:false,
+	 modal: true,
+	 buttons: {
+				"NÃO": function() {
+					$(this).dialog('close');
+					return false;
+						
+				},
+				
+				"SIM": function() {
+				
+				   $(this).dialog("close");
+		           eval(funcao);				  
+		           return true;
+					
+						
+				}
+				
+				
+	 }
+   });
+   
+   
+   $('#msg_dlg_decisao').dialog('open');
+  	
+}
+	
+	
 });
 
 // Validador de erros;
@@ -64,6 +193,7 @@ function fn_validador(elemento,atributo){
     $(elemento+' '+atributo).each(function(){
         if( $(this).val().length == 0 || $(this).val()== ''){
             $(this).addClass('ui-state-error');
+					
             flagError++;
         }else{
                     
@@ -93,8 +223,14 @@ function executar(url,dados,acao){
 	
 	$.post(url+'?'+dados+'&case='+acao,function(retorno){
 		
-		  alert(dados);
+		   if(retorno==1){
+			   
+			   msgOk("Transação Realizada  com Sucesso");
+			   
+		   }else{
+			   
+			   msgAlerta(retorno);
+		   }
 		
 		});
 }
-
