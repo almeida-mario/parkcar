@@ -28,11 +28,28 @@
 	   
 	   case 1: // Busca os Usuário Cadastrados
 	   
-		 $dados=$objDataset->smartset("select * from tb_usuario");
+	   
+	     if($_REQUEST["filtro"]){ // Filtra os dados por nome
+		 
+		     $campo=array($_REQUEST["filtro"].'%');
+			 
+			 $dados=$objDataset->smartset("select * from tb_usuario where user_name like :v1",$campo);
+			 
+		 }else{
+			 
+			 $dados=$objDataset->smartset("select * from tb_usuario");
+			 
+		 }
+	   
+	   	 
+		 // Discriptografia da senha;
 		  
-		 
-		 $dados["SENHA"][0]=base64_decode($dados["SENHA"][0]);
-		 
+		 for($a=0 ;$a <count($dados["SENHA"]);++$a){
+			  
+			  $dados["SENHA"][$a]=base64_decode($dados["SENHA"][$a]);
+		   	 
+		 }
+		 	 
 		 $objSmarty->assign("BUSCA",$dados);
 		 $objSmarty->display("modulos/sistema/parkcar.busca.usuarios.tpl");	
 		  
@@ -64,6 +81,17 @@
 	        
 			   print_r($exec); // Retorna Execução se valor retornado = 1 - Transação Realizada  senão  Retorna Mensagem de Erro
 
+	   
+	   break;
+	   
+	   
+	   case 3: // Deletar Dados
+	   
+	          $sql="DELETE FROM tb_usuario where user_id = :v1";
+			  $dados=array($_REQUEST["id_user"]);
+	          $exec=$objDataset->smartset($sql,$dados);
+			  
+			  print_r($exec); // Retorna Execução se valor retornado = 1 - Transação Realizada  senão  Retorna Mensagem de Erro
 	   
 	   break;
 	   

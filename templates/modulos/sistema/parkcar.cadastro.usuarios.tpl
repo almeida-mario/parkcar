@@ -10,8 +10,6 @@
 <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}sistema.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}parkcar.cadastro.usuarios.js"></script>
-
-
 </head>
 <body >
 <div id="barra">
@@ -52,7 +50,7 @@
         </div>
       </div>
       <!--formSistema-->
-      
+       
       <div class="btForm">
         <button id="bt_salva" type="button">SALVAR</button>
         &nbsp;
@@ -68,7 +66,7 @@
   <div id="dlg_usuarios" title="Lista de Usuários do Sistema">
     <form id="frm_lista" style=" height:300px" onsubmit="return false">
       Nome Completo:&nbsp;&nbsp;
-      <input id="nome_user" type="text" alt="obrigatorio"class="campo" size="60" />
+      <input id="nome_lista" type="text" alt="obrigatorio"class="campo" size="60" />
       <br />
       <br />
       <fieldset style="display:block; margin:15px auto 0px auto; width:98%; height:200px">
@@ -83,17 +81,11 @@
       </fieldset>
     </form>
   </div>
+ 
+  <!--Inclusão da Div das mensagens de Erro Padrão do Sistema--> 
   
-  <div id='msg_dlg_alerta' title="Resultado de Operação" style='display:none;heigth=200px;margin-left:15px;'> <img src="{$smarty.const.IMAGENS}icons/icon_alerta.png" border="0" align="absmiddle" style="float:left;margin-top:25px"/><textarea rows="10" cols="48" id="msg" name="msg"></textarea> </div>   
-
-<div id='msg_dlg_ok' title="Resultado de Operação" style='display:none;heigth=200px'> <img src="{$smarty.const.IMAGENS}icons/ok.png" border="0" align="absmiddle" style="float:left;margin-top:25px"/><p id="msg_ok" style="font-weight:bold;text-align:center;font-size:14px;margin-top:30px"></p></div>
-
-<div id='msg_dlg_processo' title="Resultado de Operação" style='display:none;heigth=200px'> <img src="{$smarty.const.IMAGENS}icons/tempo.gif" border="0" align="absmiddle" style="float:left;margin-top:25px"/><p id="msg_processo" style="font-weight:bold;text-align:center;font-size:14px;margin-top:30px"></p></div>
-
-<div id='msg_dlg_decisao' title="Resultado de Operação" style='display:none;heigth=200px'> <img src="{$smarty.const.IMAGENS}icons/decisao.png" border="0" align="absmiddle" style="float:left;margin-top:25px"/><p id="msg_decisao" style="font-weight:bold;text-align:center;font-size:14px;margin-top:30px"></p></div>
-  
-</div>
-<div id="footer">
+  {include file="includes/msgDlg.tpl"} </div>
+  <div id="footer">
   <div class="suporte"> <a href="mailto:prog.almeida@gmail.com">FALAR COM O SUPORTE</a> </div>
   <!--suporte--> 
   {$smarty.const.SISTEMA}</br>

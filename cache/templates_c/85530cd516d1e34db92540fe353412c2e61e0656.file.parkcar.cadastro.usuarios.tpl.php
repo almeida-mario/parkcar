@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-29 17:47:01
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-30 10:08:58
          compiled from "C:\xampp\htdocs\parkcar\templates\modulos\sistema\parkcar.cadastro.usuarios.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30267528e6a24c9f105-32122408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '85530cd516d1e34db92540fe353412c2e61e0656' => 
     array (
       0 => 'C:\\xampp\\htdocs\\parkcar\\templates\\modulos\\sistema\\parkcar.cadastro.usuarios.tpl',
-      1 => 1385761619,
+      1 => 1385820448,
       2 => 'file',
     ),
   ),
@@ -43,8 +43,6 @@ js/jquery-ui-1.10.3.custom.js"></script>
 sistema.js"></script>
 <script type="text/javascript" src="<?php echo @constant('JS');?>
 parkcar.cadastro.usuarios.js"></script>
-
-
 </head>
 <body >
 <div id="barra">
@@ -88,7 +86,7 @@ logo.png" height="100px" style="margin-left:70px" /></a></div>
         </div>
       </div>
       <!--formSistema-->
-      
+       
       <div class="btForm">
         <button id="bt_salva" type="button">SALVAR</button>
         &nbsp;
@@ -104,7 +102,7 @@ logo.png" height="100px" style="margin-left:70px" /></a></div>
   <div id="dlg_usuarios" title="Lista de Usuários do Sistema">
     <form id="frm_lista" style=" height:300px" onsubmit="return false">
       Nome Completo:&nbsp;&nbsp;
-      <input id="nome_user" type="text" alt="obrigatorio"class="campo" size="60" />
+      <input id="nome_lista" type="text" alt="obrigatorio"class="campo" size="60" />
       <br />
       <br />
       <fieldset style="display:block; margin:15px auto 0px auto; width:98%; height:200px">
@@ -119,21 +117,12 @@ logo.png" height="100px" style="margin-left:70px" /></a></div>
       </fieldset>
     </form>
   </div>
+ 
+  <!--Inclusão da Div das mensagens de Erro Padrão do Sistema--> 
   
-  <div id='msg_dlg_alerta' title="Resultado de Operação" style='display:none;heigth=200px;margin-left:15px;'> <img src="<?php echo @constant('IMAGENS');?>
-icons/icon_alerta.png" border="0" align="absmiddle" style="float:left;margin-top:25px"/><textarea rows="10" cols="48" id="msg" name="msg"></textarea> </div>   
-
-<div id='msg_dlg_ok' title="Resultado de Operação" style='display:none;heigth=200px'> <img src="<?php echo @constant('IMAGENS');?>
-icons/ok.png" border="0" align="absmiddle" style="float:left;margin-top:25px"/><p id="msg_ok" style="font-weight:bold;text-align:center;font-size:14px;margin-top:30px"></p></div>
-
-<div id='msg_dlg_processo' title="Resultado de Operação" style='display:none;heigth=200px'> <img src="<?php echo @constant('IMAGENS');?>
-icons/tempo.gif" border="0" align="absmiddle" style="float:left;margin-top:25px"/><p id="msg_processo" style="font-weight:bold;text-align:center;font-size:14px;margin-top:30px"></p></div>
-
-<div id='msg_dlg_decisao' title="Resultado de Operação" style='display:none;heigth=200px'> <img src="<?php echo @constant('IMAGENS');?>
-icons/decisao.png" border="0" align="absmiddle" style="float:left;margin-top:25px"/><p id="msg_decisao" style="font-weight:bold;text-align:center;font-size:14px;margin-top:30px"></p></div>
-  
-</div>
-<div id="footer">
+  <?php echo $_smarty_tpl->getSubTemplate ("includes/msgDlg.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+ </div>
+  <div id="footer">
   <div class="suporte"> <a href="mailto:prog.almeida@gmail.com">FALAR COM O SUPORTE</a> </div>
   <!--suporte--> 
   <?php echo @constant('SISTEMA');?>

@@ -55,10 +55,64 @@ $().ready(function(){
 	});		
 	
 	
-	<!-- Tratamento Mensagens de ERRO do Sistema:-->
+});
+
+// Validador de erros;
+
+function fn_validador(elemento,atributo){
+    var flagError = 0;
+    $(elemento+' '+atributo).each(function(){
+        if( $(this).val().length == 0 || $(this).val()== ''){
+            $(this).addClass('ui-state-error');
+					
+            flagError++;
+        }else{
+                    
+            $(this).removeClass('ui-state-error');
+                   
+        }
+    });
+	
+    if(flagError>0)return false; else return true;
+}
 
 
-function msgOk(msg){
+<!--Função para Retorno do Dados via Ajax-->
+
+function busca_dados(url,form,retorno){
+	
+  var dados= $(form).serialize();	
+  
+  $(retorno).load(url+dados);
+  	
+}
+
+
+<!--Função Ajax para  envio de transações;-->
+
+function executar(url,dados,acao,callback){
+	
+	$.post(url+'?'+dados+'&case='+acao,function(retorno){
+		
+		   if(retorno==1){
+			   
+			   msgOk("Transação Realizada  com Sucesso!!!");
+			   
+			   callback(); //Retorno como verdadeiro.
+			   			   			   
+		   }else{
+			   
+			   msgAlerta(retorno);
+		   }
+		
+		});
+}
+
+
+<!-- Tratamento Mensagens de ERRO do Sistema:-->
+
+
+   function msgOk(msg){
 	
 	
 	if(msg.length > 0){
@@ -182,55 +236,19 @@ function msgDecisao(msg,funcao){
    $('#msg_dlg_decisao').dialog('open');
   	
 }
-	
-	
-});
 
-// Validador de erros;
+<!--Retirar espaços vazios -->
 
-function fn_validador(elemento,atributo){
-    var flagError = 0;
-    $(elemento+' '+atributo).each(function(){
-        if( $(this).val().length == 0 || $(this).val()== ''){
-            $(this).addClass('ui-state-error');
-					
-            flagError++;
-        }else{
-                    
-            $(this).removeClass('ui-state-error');
-                   
-        }
-    });
-	
-    if(flagError>0)return false; else return true;
-}
+function trim(str) {
 
-
-<!--Função para Retorno do Dados via Ajax-->
-
-function busca_dados(url,form,retorno){
-	
-  var dados= $(form).serialize();	
-  
-  $(retorno).load(url+dados);
+  var retorno='';
   	
-}
-
-
-<!--Função Ajax para  envio de transações;-->
-
-function executar(url,dados,acao){
-	
-	$.post(url+'?'+dados+'&case='+acao,function(retorno){
+	for(var i=0;i<str.length;i++){
+			   
+			 retorno =retorno+str[i].replace(' ','+');
+			   
+		}
 		
-		   if(retorno==1){
-			   
-			   msgOk("Transação Realizada  com Sucesso");
-			   
-		   }else{
-			   
-			   msgAlerta(retorno);
-		   }
+   return retorno;		
 		
-		});
 }

@@ -1,11 +1,9 @@
 // JavaScript Document
 
+ var url='sistema/parkcar.cadastro.usuarios.php';
 
 $().ready(function(){
-    
-	 var url='sistema/parkcar.cadastro.usuarios.php';
-       
-  
+            
     $("#nome_user").focus();
 	
 	$('#bt_new').click(function(){
@@ -20,15 +18,41 @@ $().ready(function(){
         if(fn_validador('#frm_usuario','[alt=obrigatorio]')){
 			
 			var dados =$('#frm_usuario').serialize();          
-            executar(url,dados,2);
+            executar(url,dados,2,function(retorno){
+				
+			   $("#frm_usuario").each(function(){
+				  this.reset(); 
+                 });
+				 
+			   $('#id_user').val('');	 
+				
+			}); 
+			
         }
           
     });
 	
+	$('#bt_del').click(function(){
+		
+		if(fn_validador('#frm_usuario','[alt=obrigatorio]')){
+			msgDecisao('','deletar()'); 
+		}
+	
+	});
+	
+	
+	$('#nome_lista').keyup(function(e){
+		
+		   var filtro=trim($('#nome_lista').val());
+		
+		   busca_dados(url+"?case=1&filtro="+filtro+'&',"#frm_usuario","#result_lista");
+		   
+	  });
+	
 	
 	$('#bt_pesq').click(function(e) {
          
-		 busca_dados(url+"?case=1","#frm_usuario","#result_lista");
+		 busca_dados(url+"?case=1&","#frm_usuario","#result_lista");
 		 
 		 $('#dlg_usuarios').dialog( "open" );
 		 
@@ -68,3 +92,21 @@ $().ready(function(){
 		});
   
 });
+
+
+
+function deletar(){
+		
+  var dados =$('#frm_usuario').serialize();          
+  executar(url,dados,3,function(retorno){
+	  
+	 $("#frm_usuario").each(function(){
+		this.reset(); 
+	   });
+	   
+	 $('#id_user').val('');	 
+	  
+  }); 
+	
+}
+
