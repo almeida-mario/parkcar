@@ -10,6 +10,8 @@
 <script type="text/javascript" src="{$smarty.const.JQUERY}js/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}sistema.js"></script>
 <script type="text/javascript" src="{$smarty.const.JS}parkcar.controle.estacionamento.js"></script>
+<script type="text/javascript" src="{$smarty.const.JS}jquery.mask.js"></script>
+
 </head>
 <body >
 <div id="barra">
@@ -35,50 +37,47 @@
       <h2 class="ui-widget-header" style="height:25px;text-align:center">Controle do Estacionamento</h2>
       <div class="formSistema">
         <h3 style="margin-left:15px;font-weight:bold">Dados Carros</h3>
-
-        
-        
-         <div style="width:700px">
-          
+        <div style="width:700px">
           <div class="field" style="width:100px">
-          <label class="rotulo">Placa:</label>
-          <input id="placa" name="placa" style="text-transform:uppercase" type="text" alt="obrigatorio" title="Campo Obrigatório." class="campo" size="13" />
+            <label class="rotulo">Placa:</label>
+            <input id="data_estacionamento" name="data_estacionamento" type="hidden" />
+            <input id="placa" name="placa" style="text-transform:uppercase" type="text" alt="obrigatorio" title="Campo Obrigatório." class="campo" size="13" />
           </div>
-          
-          <div class="field" style="width:200px">  
-          <label class="rotulo">Tipo Veículo:</label>
-          <select id="sl_veiculo" name="sl_veiculo" alt="obrigatorio" title="Campo Obrigatório.">
-            <option value="">-SEL-</option>
+          <div class="field" style="width:200px">
+            <label class="rotulo">Tipo Veículo:</label>
+            <select id="sl_veiculo" name="sl_veiculo" alt="obrigatorio" title="Campo Obrigatório.">
+              <option value="">-SEL-</option>
+              
             {section name=a loop=$VEICULOS.DESCRICAO}
+              
               <option value="{$VEICULOS.ID_VEICULO[a]}">{$VEICULOS.DESCRICAO[a]}</option>
+              
             {/section}
-          </select>  
+          
+            </select>
           </div>
-          
-          <div class="field" style="width:100px">  
-          <label class="rotulo">Tabela:</label>
-          
-          
-          <select id="sl_preco" name="sl_preco" style=" width:100px" alt="obrigatorio" title="Campo Obrigatório.">
-            <option value="">-SEL-</option>
+          <div class="field" style="width:100px">
+            <label class="rotulo">Tabela:</label>
+            <select id="sl_preco" name="sl_preco" style=" width:100px" alt="obrigatorio" title="Campo Obrigatório.">
+              <option value="">-SEL-</option>
+              
             {section name=a loop=$PRECOS.DESCRICAO}
+              
               <option value="{$PRECOS.ID_PRECO[a]}">{$PRECOS.DESCRICAO[a]}</option>
+              
             {/section}
-          </select>  
-          </div>
           
-          <div class="field" style="width:250px">
-          <label class="rotulo">Cor Veículo:</label>
-          <input id="cor" name="cor" style="text-transform:uppercase" type="text" alt="obrigatorio" title="Campo Obrigatório." class="campo" size="50" />
+            </select>
           </div>
-      
-         </div>  
-        
-         
+          <div class="field" style="width:250px">
+            <label class="rotulo">Cor Veículo:</label>
+            <input id="cor" name="cor" style="text-transform:uppercase" type="text" alt="obrigatorio" title="Campo Obrigatório." class="campo" size="50" />
+          </div>
+        </div>
       </div>
       <!--formSistema-->
       
-       <fieldset style="display:block; margin:15px auto 0px auto; width:95%; height:150px">
+      <fieldset style="display:block; margin:15px auto 0px auto; width:95%; height:150px">
         <legend>LISTAGEM</legend>
         <table cellpadding="0" cellspacing="0" border="0"  width="100%" style="table-layout:fixed;text-align:center; font-size:12px">
           <tr class="ui-state-hover" height="20px">
@@ -91,23 +90,50 @@
         </table>
         <div id="result_lista" class="resultado"; style="display:block; height:110px"></div>
       </fieldset>
-      
-       
       <div class="btForm">
-        <button id="bt_salva" type="button">SALVAR</button>
+        <button id="bt_salva" type="button">ESTACIONAR</button>
         &nbsp;
         <button id="bt_new"  type="reset">LIMPAR</button>
-        &nbsp;
-        <button id="bt_del" type="button">EXCLUIR</button>
       </div>
       <!--btForm-->
     </form>
   </div>
- 
+  
+  <div id="dlg_estacionamento" title="Pagamento do Estacionamento">
+    <form id="frm_saida" style=" height:200px" onsubmit="return false">
+    
+      <input type="hidden" id="tipo_preco" name="tipo_preco" />
+      Tabela:&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="tabela" type="text" alt="obrigatorio" readonly="readonly" class="campo" size="15" />
+      <br />
+
+       Entrada:&nbsp;&nbsp;
+      <input id="hora_ent" name="hora_ent" type="text" alt="obrigatorio" readonly="readonly" class="campo" size="15" />
+     
+       Saída:&nbsp;
+      <input id="hora_sai" type="text" alt="obrigatorio"class="campo" size="15" />
+      
+
+       Tempo:&nbsp;&nbsp;
+      <input id="tempo" type="text" alt="obrigatorio" readonly="readonly" class="campo" size="15" />
+      
+      <br />
+
+       Valor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="valor" type="text" alt="obrigatorio" readonly="readonly" class="campo" size="15" />
+      
+      <br />
+      <br />
+      </fieldset>
+    </form>
+  </div>
+  
+  
+  
   <!--Inclusão da Div das mensagens de Erro Padrão do Sistema--> 
   
   {include file="includes/msgDlg.tpl"} </div>
-  <div id="footer">
+<div id="footer">
   <div class="suporte"> <a href="mailto:prog.almeida@gmail.com">FALAR COM O SUPORTE</a> </div>
   <!--suporte--> 
   {$smarty.const.SISTEMA}</br>

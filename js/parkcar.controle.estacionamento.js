@@ -5,6 +5,7 @@
  $().ready(function(){
             
     $("#placa").focus();
+	  $('#placa').mask('SSS-9999');
 	
 	busca_carros();
 	
@@ -17,12 +18,16 @@
 			var dados =$('#frm_est').serialize();          
             executar(url,dados,2,function(retorno){
 				
+			   window.open('sistema/parkcar.impressao.ticket.php?tipo=E&'+dados,"popupWindow", "width=600,height=600,scrollbars=yes");	
+				
 			   $("#frm_est").each(function(){
 				  this.reset(); 
                  });
 				 	
 			   
 			    busca_carros(); 
+				
+			  
 				
 			}); 
 			
@@ -56,6 +61,37 @@
     });
 	
 	
+	$( "#dlg_estacionamento" ).dialog({
+			autoOpen: false,
+			modal:true,
+			width: 600,
+			buttons: [
+				{
+					text: "Calcular",
+					click: function() {						
+						calcular_tempo();
+					}
+				},
+				{
+					text: "Pagar",
+					click: function() {
+						pagar_estacionamento();
+						//$( this ).dialog( "close" );
+					},
+				 	
+				},
+				
+				{
+					text: "Cancel",
+					click: function() {
+						$( this ).dialog( "close" );
+					},
+				 	
+				}
+			]
+		});
+	
+	
  });
  
  
@@ -79,4 +115,49 @@
 	  
   }); 
 	
-}// JavaScript Document
+}
+
+
+function calcular_tempo(){
+	
+ var dados =$('#frm_saida').serialize();   
+ 
+ $.post(url+'?'+dados+'&case='+4,function(retorno){       
+ 	  
+	  var str = retorno.split(";");
+	  
+	  $('#hora_sai').val(str[1]);
+	  $('#tempo').val(str[2]);
+	  $('#valor').val(str[3]);
+	  	  
+  }); 
+	
+}
+
+
+function pagar_estacionamento(){
+	
+if(fn_validador('#frm_saida','[alt=obrigatorio]')){
+		
+		var dados =$('#frm_est').serialize();          
+		executar(url,dados+'&hora_sai='+$('#hora_sai').val()+'&valor='+$('#valor').val(),2,function(retorno){
+			
+			window.open('sistema/parkcar.impressao.ticket.php?tipo=S&entrada='+$('#hora_ent').val()+'&saida='+$('#hora_sai').val()+'&tempo='+$('#tempo').val()+'&valor='+$('#valor').val()+'&'+dados,"popupWindow", "width=600,height=600,scrollbars=yes");
+			
+		     $("#frm_saida").each(function(){
+			  this.reset(); 
+			 });
+			 
+			 $("#frm_est").each(function(){
+			  this.reset(); 
+			 });
+				
+		   $('#dlg_estacionamento').dialog("close");
+		    
+			busca_carros(); 
+			
+		}); 
+		
+	}
+}
+

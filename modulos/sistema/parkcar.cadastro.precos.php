@@ -16,7 +16,7 @@
 		
 		
 		 $log_user = $_SESSION['SISTEMAWEB']['DADOS']['LOGIN'][0];
-         $log_data = date('Y-m-d H:m:s');
+         $log_data = date('Y-m-d H:i:s');
 		
 	}
 	

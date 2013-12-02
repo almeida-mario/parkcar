@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-12-02 04:18:28
+<?php /* Smarty version Smarty-3.1.13, created on 2013-12-02 13:40:32
          compiled from "C:\xampp\htdocs\parkcar\templates\modulos\sistema\parkcar.busca.estacionamento.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:22407529bf8abc5c3d6-43093791%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '212624c582df4e5614b14834e1e6b90de840f303' => 
     array (
       0 => 'C:\\xampp\\htdocs\\parkcar\\templates\\modulos\\sistema\\parkcar.busca.estacionamento.tpl',
-      1 => 1385954304,
+      1 => 1386006030,
       2 => 'file',
     ),
   ),
@@ -44,8 +44,16 @@ $(".z").click(function(){
 		$('#sl_veiculo').val(dados[1]);
 		$('#sl_preco').val(dados[2]);
 		$('#cor').val(dados[3]);
-	
-	
+		$('#hora_ent').val(dados[4]);
+		$('#tabela').val(dados[5]);
+		$('#tipo_preco').val(dados[6]);
+		$('#valor').val('');
+		$('#hora_sai').val('');
+		$('#tempo').val('');
+		$('#data_estacionamento').val(dados[7]);
+		
+		
+	    $('#dlg_estacionamento').dialog("open");
       		
 		if (id_old!=linha)
 		   {	
@@ -112,6 +120,10 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['last']       = ($_smart
 ;<?php echo $_smarty_tpl->tpl_vars['BUSCA']->value['TIPO_VEICULO'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
 ;<?php echo $_smarty_tpl->tpl_vars['BUSCA']->value['ID_PRECO'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
 ;<?php echo $_smarty_tpl->tpl_vars['BUSCA']->value['COR'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
+;<?php echo $_smarty_tpl->tpl_vars['BUSCA']->value['HORARIO_ENTRADA'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
+;<?php echo $_smarty_tpl->tpl_vars['BUSCA']->value['TABELA'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
+;<?php echo $_smarty_tpl->tpl_vars['BUSCA']->value['ID_PRECO'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
+;<?php echo $_smarty_tpl->tpl_vars['BUSCA']->value['DATA_REGISTRO'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
 " onMouseOver="ativa(this.id)" onMouseOut="desativa(this.id)"> 
   <td width="15%" style="text-align:center"><?php echo $_smarty_tpl->tpl_vars['BUSCA']->value['PLACA'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
 </td>

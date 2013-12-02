@@ -19,8 +19,16 @@ $(".z").click(function(){
 		$('#sl_veiculo').val(dados[1]);
 		$('#sl_preco').val(dados[2]);
 		$('#cor').val(dados[3]);
-	
-	
+		$('#hora_ent').val(dados[4]);
+		$('#tabela').val(dados[5]);
+		$('#tipo_preco').val(dados[6]);
+		$('#valor').val('');
+		$('#hora_sai').val('');
+		$('#tempo').val('');
+		$('#data_estacionamento').val(dados[7]);
+		
+		
+	    $('#dlg_estacionamento').dialog("open");
       		
 		if (id_old!=linha)
 		   {	
@@ -60,7 +68,7 @@ function desativa($id)
 {if $BUSCA}
 <table cellpadding="0" cellspacing="0" border="1" width="100%" style="border-collapse:collapse;font-size:12px; table-layout:fixed">
  {section name=a loop=$BUSCA.PLACA}
- <tr class="z"  id="{$BUSCA.PLACA[a]};{$BUSCA.TIPO_VEICULO[a]};{$BUSCA.ID_PRECO[a]};{$BUSCA.COR[a]}" onMouseOver="ativa(this.id)" onMouseOut="desativa(this.id)"> 
+ <tr class="z"  id="{$BUSCA.PLACA[a]};{$BUSCA.TIPO_VEICULO[a]};{$BUSCA.ID_PRECO[a]};{$BUSCA.COR[a]};{$BUSCA.HORARIO_ENTRADA[a]};{$BUSCA.TABELA[a]};{$BUSCA.ID_PRECO[a]};{$BUSCA.DATA_REGISTRO[a]}" onMouseOver="ativa(this.id)" onMouseOut="desativa(this.id)"> 
   <td width="15%" style="text-align:center">{$BUSCA.PLACA[a]}</td>
   <td width="" style="text-align:left">&nbsp;&nbsp;{$BUSCA.DESCRICAO[a]}</td>
    <td width="15%" style="text-align:center">{$BUSCA.DATA_REGISTRO[a]}</td>

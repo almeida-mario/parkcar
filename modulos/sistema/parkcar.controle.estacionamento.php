@@ -1,6 +1,6 @@
 <?php
 /**
- * @author  Mário Almeida  <prog.almeida@gmail.com> 
+ * @author  Mário Almeida    <prog.almeida@gmail.com> 
  * @file parkcar.controle.estacionamento.php
  * @copyright 2013
  */	   
@@ -16,10 +16,37 @@
 		
 		
 		 $log_user = $_SESSION['SISTEMAWEB']['DADOS']['LOGIN'][0];
-         $log_data = date('Y-m-d H:m:s');
+         $log_data = date('Y-m-d H:i:s');
 		
 	}
 	
+	/*Função para Cálculo de Hora*/
+	
+	function SubHora($hora1,$hora2){
+
+	$hora1 = explode(":",$hora1);
+	$hora2 = explode(":",$hora2);
+	$acumulador1 = ($hora1[0] * 3600) + ($hora1[1] * 60) + $hora1[2];
+	$acumulador2 = ($hora2[0] * 3600) + ($hora2[1] * 60) + $hora2[2];
+	$resultado = $acumulador2 - $acumulador1;
+	$H=round(($resultado/3600),4);
+	$h=explode('.',$H);
+	$M='0'.'.'.$h[1];
+	$h=$h[0];
+	$m=$M*60;
+	$m=explode('.',$m);
+	$s='0'.'.'.$m[1];
+	$s=round($s*60);
+	$m=$m[0];	
+	if($h<=0) $h=$h*(-1);
+    if($h>=0 && $h<=9) $h='0'.$h;
+	if($m>=0 && $m<=9) $m='0'.$m;
+	if($s>=0 && $s<=9) $s='0'.$s;
+	
+	$resposta=$h.':'.$m.':'.$s;
+	
+	return $resposta;
+   }
           
    
    
@@ -65,34 +92,56 @@
 	   case 2: // Salvar Dados
 	   
 	   
-	       if(empty($_REQUEST["id_preco"])){ // Variável  vazia insert; 
-			   
-			   $vlr_hora=str_replace(",",".",$_REQUEST["vlr_hora"]); // Substituir "," por "." php numero padrão americano exemplo: 10.55;
-			   $vlr_ad_hora=str_replace(",",".",$_REQUEST["vlr_ad_hora"]);
-			   $vlr_ad_fracao=str_replace(",",".",$_REQUEST["vlr_ad_fracao"]);
-			   
-			   $sql="INSERT INTO tb_preco (descricao, valor_hora, valor_adcional_hora, valor_adcional_fracao) VALUES (:v1, :v2, :v3, :v4)";
-			   $dados=array(strtoupper($_REQUEST["descricao"]),$vlr_hora,$vlr_ad_hora,$vlr_ad_fracao); 
+	        $verifica=$objDataset->smartset("select count(*) existe	 from tb_estacionamento where placa= :v1 and  horario_saida IS NULL ",array(strtoupper($_REQUEST["placa"])));
+			  
+	   
+	       if($verifica["EXISTE"][0]==0){ // Variável  vazia insert; 
+			   			   
+			   $sql="INSERT INTO tb_estacionamento(placa,
+                                      data_registro,
+                                      tipo_veiculo,
+                                      cor,
+                                      tipo_preco,
+                                      horario_entrada,
+                                      log,
+                                      log_data)
+						VALUES (:v1,
+								:v2,
+								:v3,
+								:v4,
+								:v5,
+								:v6,
+								:v7,
+								:v8)";
+								
+			   $dados=array(strtoupper($_REQUEST["placa"]),date("Y-m-d"),$_REQUEST["sl_veiculo"],strtoupper($_REQUEST["cor"]),$_REQUEST["sl_preco"],date("H:i:s"),$log_user,$log_data); 
 			  
 			   
 			   
 			   $exec=$objDataset->smartset($sql,$dados);
+			  	   
+		   }else if(!empty($_REQUEST["hora_sai"])){ //Variável preenchida  update 
 			   
 			   
-		   }else{ //Variável preenchida  update 
 			   
-			   $vlr_hora=str_replace(",",".",$_REQUEST["vlr_hora"]); // Substituir "," por "." php numero padrão americano exemplo: 10.55;
-			   $vlr_ad_hora=str_replace(",",".",$_REQUEST["vlr_ad_hora"]);
-			   $vlr_ad_fracao=str_replace(",",".",$_REQUEST["vlr_ad_fracao"]);
-			   
-			   $sql="UPDATE tb_preco SET descricao = :v1 , valor_hora = :v2, valor_adcional_hora = :v3, valor_adcional_fracao = :v4 WHERE id_preco = :v5";
-			   $dados=array(strtoupper($_REQUEST["descricao"]),$vlr_hora,$vlr_ad_hora,$vlr_ad_fracao,$_REQUEST["id_preco"]);
+			   $sql="UPDATE tb_estacionamento
+					   SET horario_saida = :v1,
+						   valor_pago = :v2,
+						   log = :v3,
+						   log_data = :v4
+					 WHERE placa = :v5 AND data_registro = :v6";
+					 
+			   $temp=explode("/",$_REQUEST["data_estacionamento"]);	 
+			   $data_est=$temp[2].'-'.$temp[1].'-'.$temp[0];		 
+					 
+			   $dados=array($_REQUEST["hora_sai"],$_REQUEST["valor"],$log_user,$log_data,$_REQUEST["placa"],$data_est);
 			   
 			   $exec=$objDataset->smartset($sql,$dados);
-			   
+		
 			   
 		   }
 	   
+	          
 	        
 			   print_r($exec); // Retorna Execução se valor retornado = 1 - Transação Realizada  senão  Retorna Mensagem de Erro
 
@@ -102,11 +151,56 @@
 	   
 	   case 3: // Deletar Dados
 	   
-	          $sql="DELETE FROM tb_preco where id_preco = :v1";
-			  $dados=array($_REQUEST["id_preco"]);
+	          $sql="DELETE FROM tb_estacionamento where placa = :v1 AND data_registro = :v2";
+			  $temp=explode("/",$_REQUEST["data_estacionamento"]);	 
+			  $data_est=$temp[2].'-'.$temp[1].'-'.$temp[0];
+			  $dados=array($_REQUEST["id_preco"],$data_est);
+			  
 	          $exec=$objDataset->smartset($sql,$dados);
 			  
 			  print_r($exec); // Retorna Execução se valor retornado = 1 - Transação Realizada  senão  Retorna Mensagem de Erro
+	   
+	   break;
+	   
+	   case 4: // Calcular valor do estacionamento;
+	      
+		  $hora_entrada = ($_REQUEST["hora_ent"]);
+		  $hora_saida=date('H:i:s');
+		  $sql="select * from tb_preco where id_preco=:v1";
+		  $dados=array($_REQUEST["tipo_preco"]);
+		  $precos=$objDataset->smartset($sql,$dados);
+		  
+		  //$tempo=$objDataset->smartset("select TIMEDIFF(:v2,:v1) as tempo",array($_REQUEST["hora_ent"],$hora_saida)); 
+		  
+		  	  
+		  
+		  $tempo_final=SubHora($hora_saida,$hora_entrada);
+		  
+		  $temp=explode(":",$tempo_final);
+		  
+		  
+		  if($temp[0]>1){ // Calculo de Horas;
+			  
+			  $total +=$precos["VALOR_ADCIONAL_HORA"][0]*($temp[0]-1)+$precos["VALOR_HORA"][0]; 
+			  
+		  }else if($temp[0]==1){
+			  
+			 $total+=$precos["VALOR_HORA"][0]; 
+		  }
+		  
+		  
+		  if($temp[1]>0){ // Calcula Tempo pelos Minutos;
+			  
+			 $total +=($temp[1]/15)*$precos["VALOR_ADCIONAL_FRACAO"][0]; 
+			  
+		  }
+		  
+		  
+		  $total=number_format($total,2,"."," ");
+		
+		  
+		  print_r('1'.';'.$hora_saida.';'.$tempo_final.';'.$total);
+		      
 	   
 	   break;
 	   

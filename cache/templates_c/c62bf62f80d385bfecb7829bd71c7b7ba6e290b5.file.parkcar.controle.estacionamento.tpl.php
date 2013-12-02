@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-12-02 04:04:10
+<?php /* Smarty version Smarty-3.1.13, created on 2013-12-02 14:32:44
          compiled from "C:\xampp\htdocs\parkcar\templates\modulos\sistema\parkcar.controle.estacionamento.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6958529bef1ada9411-14591163%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c62bf62f80d385bfecb7829bd71c7b7ba6e290b5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\parkcar\\templates\\modulos\\sistema\\parkcar.controle.estacionamento.tpl',
-      1 => 1385953448,
+      1 => 1386009161,
       2 => 'file',
     ),
   ),
@@ -45,6 +45,9 @@ js/jquery-ui-1.10.3.custom.js"></script>
 sistema.js"></script>
 <script type="text/javascript" src="<?php echo @constant('JS');?>
 parkcar.controle.estacionamento.js"></script>
+<script type="text/javascript" src="<?php echo @constant('JS');?>
+jquery.mask.js"></script>
+
 </head>
 <body >
 <div id="barra">
@@ -73,20 +76,17 @@ logo.png" height="100px" style="margin-left:70px" /></a></div>
       <h2 class="ui-widget-header" style="height:25px;text-align:center">Controle do Estacionamento</h2>
       <div class="formSistema">
         <h3 style="margin-left:15px;font-weight:bold">Dados Carros</h3>
-
-        
-        
-         <div style="width:700px">
-          
+        <div style="width:700px">
           <div class="field" style="width:100px">
-          <label class="rotulo">Placa:</label>
-          <input id="placa" name="placa" style="text-transform:uppercase" type="text" alt="obrigatorio" title="Campo Obrigatório." class="campo" size="13" />
+            <label class="rotulo">Placa:</label>
+            <input id="data_estacionamento" name="data_estacionamento" type="hidden" />
+            <input id="placa" name="placa" style="text-transform:uppercase" type="text" alt="obrigatorio" title="Campo Obrigatório." class="campo" size="13" />
           </div>
-          
-          <div class="field" style="width:200px">  
-          <label class="rotulo">Tipo Veículo:</label>
-          <select id="sl_veiculo" name="sl_veiculo" alt="obrigatorio" title="Campo Obrigatório.">
-            <option value="">-SEL-</option>
+          <div class="field" style="width:200px">
+            <label class="rotulo">Tipo Veículo:</label>
+            <select id="sl_veiculo" name="sl_veiculo" alt="obrigatorio" title="Campo Obrigatório.">
+              <option value="">-SEL-</option>
+              
             <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['a'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['a']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['name'] = 'a';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['VEICULOS']->value['DESCRICAO']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -111,19 +111,20 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['index_next'] = $_smarty
 $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['a']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['a']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['total']);
 ?>
+              
               <option value="<?php echo $_smarty_tpl->tpl_vars['VEICULOS']->value['ID_VEICULO'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
 "><?php echo $_smarty_tpl->tpl_vars['VEICULOS']->value['DESCRICAO'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
 </option>
+              
             <?php endfor; endif; ?>
-          </select>  
+          
+            </select>
           </div>
-          
-          <div class="field" style="width:100px">  
-          <label class="rotulo">Tabela:</label>
-          
-          
-          <select id="sl_preco" name="sl_preco" style=" width:100px" alt="obrigatorio" title="Campo Obrigatório.">
-            <option value="">-SEL-</option>
+          <div class="field" style="width:100px">
+            <label class="rotulo">Tabela:</label>
+            <select id="sl_preco" name="sl_preco" style=" width:100px" alt="obrigatorio" title="Campo Obrigatório.">
+              <option value="">-SEL-</option>
+              
             <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['a'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['a']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['name'] = 'a';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['PRECOS']->value['DESCRICAO']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -148,25 +149,24 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['index_next'] = $_smarty
 $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['a']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['a']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['total']);
 ?>
+              
               <option value="<?php echo $_smarty_tpl->tpl_vars['PRECOS']->value['ID_PRECO'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
 "><?php echo $_smarty_tpl->tpl_vars['PRECOS']->value['DESCRICAO'][$_smarty_tpl->getVariable('smarty')->value['section']['a']['index']];?>
 </option>
+              
             <?php endfor; endif; ?>
-          </select>  
-          </div>
           
-          <div class="field" style="width:250px">
-          <label class="rotulo">Cor Veículo:</label>
-          <input id="cor" name="cor" style="text-transform:uppercase" type="text" alt="obrigatorio" title="Campo Obrigatório." class="campo" size="50" />
+            </select>
           </div>
-      
-         </div>  
-        
-         
+          <div class="field" style="width:250px">
+            <label class="rotulo">Cor Veículo:</label>
+            <input id="cor" name="cor" style="text-transform:uppercase" type="text" alt="obrigatorio" title="Campo Obrigatório." class="campo" size="50" />
+          </div>
+        </div>
       </div>
       <!--formSistema-->
       
-       <fieldset style="display:block; margin:15px auto 0px auto; width:95%; height:150px">
+      <fieldset style="display:block; margin:15px auto 0px auto; width:95%; height:150px">
         <legend>LISTAGEM</legend>
         <table cellpadding="0" cellspacing="0" border="0"  width="100%" style="table-layout:fixed;text-align:center; font-size:12px">
           <tr class="ui-state-hover" height="20px">
@@ -179,24 +179,51 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['a']['last']       = ($_smart
         </table>
         <div id="result_lista" class="resultado"; style="display:block; height:110px"></div>
       </fieldset>
-      
-       
       <div class="btForm">
-        <button id="bt_salva" type="button">SALVAR</button>
+        <button id="bt_salva" type="button">ESTACIONAR</button>
         &nbsp;
         <button id="bt_new"  type="reset">LIMPAR</button>
-        &nbsp;
-        <button id="bt_del" type="button">EXCLUIR</button>
       </div>
       <!--btForm-->
     </form>
   </div>
- 
+  
+  <div id="dlg_estacionamento" title="Pagamento do Estacionamento">
+    <form id="frm_saida" style=" height:200px" onsubmit="return false">
+    
+      <input type="hidden" id="tipo_preco" name="tipo_preco" />
+      Tabela:&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="tabela" type="text" alt="obrigatorio" readonly="readonly" class="campo" size="15" />
+      <br />
+
+       Entrada:&nbsp;&nbsp;
+      <input id="hora_ent" name="hora_ent" type="text" alt="obrigatorio" readonly="readonly" class="campo" size="15" />
+     
+       Saída:&nbsp;
+      <input id="hora_sai" type="text" alt="obrigatorio"class="campo" size="15" />
+      
+
+       Tempo:&nbsp;&nbsp;
+      <input id="tempo" type="text" alt="obrigatorio" readonly="readonly" class="campo" size="15" />
+      
+      <br />
+
+       Valor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="valor" type="text" alt="obrigatorio" readonly="readonly" class="campo" size="15" />
+      
+      <br />
+      <br />
+      </fieldset>
+    </form>
+  </div>
+  
+  
+  
   <!--Inclusão da Div das mensagens de Erro Padrão do Sistema--> 
   
   <?php echo $_smarty_tpl->getSubTemplate ("includes/msgDlg.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
  </div>
-  <div id="footer">
+<div id="footer">
   <div class="suporte"> <a href="mailto:prog.almeida@gmail.com">FALAR COM O SUPORTE</a> </div>
   <!--suporte--> 
   <?php echo @constant('SISTEMA');?>

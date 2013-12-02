@@ -93,7 +93,7 @@ function busca_dados(url,form,retorno){
 function executar(url,dados,acao,callback){
 	
 	$.post(url+'?'+dados+'&case='+acao,function(retorno){
-		
+				
 		   if(retorno==1){
 			   
 			   msgOk("Transação Realizada  com Sucesso!!!");
