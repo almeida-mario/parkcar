@@ -1,9 +1,11 @@
 <?php
 /**
- * @author  Mário Almeida  <prog.almeida@gmail.com> 
+ * @author  Mário Almeida    <prog.almeida@gmail.com>
+ *          Kleyton Gabriel  <kleyton_gabriel@hotmail.com>
+ *          Victor Rodrigues <victor.rodrigues.oliveira@gmail.com> 
  * @file parkcar.impressao.ticket.php
  * @copyright 2013
- */	   
+ */
  
 		require_once ('../../configs/config.inc.php');
         $objSessao = new sessao(DB_DNS, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => DB_PERSISTENT));

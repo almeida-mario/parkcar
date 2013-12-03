@@ -1,10 +1,13 @@
 <?php
 
 /**
- * @author  Mário Almeida  <prog.almeida@gmail.com>
- * @file sistema.class.php
- * @copyright 01/03/2013 - 08:21:01
+ * @author  Mário Almeida    <prog.almeida@gmail.com>
+ *          Kleyton Gabriel  <kleyton_gabriel@hotmail.com>
+ *          Victor Rodrigues <victor.rodrigues.oliveira@gmail.com> 
+ * @file sistema.class.php 
+ * @copyright 2013
  */
+ 
 class sistema extends dataset {
 
     private $idUsuario;

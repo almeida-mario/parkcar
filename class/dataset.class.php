@@ -1,9 +1,11 @@
 <?php
 
 /**
- * @author  Mário Almeida  <prog.almeida@gmail.com> 
+ * @author  Mário Almeida    <prog.almeida@gmail.com>
+ *          Kleyton Gabriel  <kleyton_gabriel@hotmail.com>
+ *          Victor Rodrigues <victor.rodrigues.oliveira@gmail.com> 
  * @file dataset.class.php 
- * @copyright 21/02/2013 - 14:08:07 
+ * @copyright 2013
  */
 class dataset extends PDO {
 

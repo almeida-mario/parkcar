@@ -1,9 +1,11 @@
 <?php
 /**
- * @author  Mário Almeida  <prog.almeida@gmail.com> 
+ * @author  Mário Almeida    <prog.almeida@gmail.com>
+ *          Kleyton Gabriel  <kleyton_gabriel@hotmail.com>
+ *          Victor Rodrigues <victor.rodrigues.oliveira@gmail.com> 
  * @file parkcar.cadastro.precos.php
  * @copyright 2013
- */	   
+ */
     $case=$_REQUEST["case"];
 	
 	if($case > 0){ // Carrega as Classes para chamadas Ajax;

@@ -1,10 +1,13 @@
 <?php
 
 /**
- * @author  Mário Almeida  <prog.almeida@gmail.com> 
+ * @author  Mário Almeida    <prog.almeida@gmail.com>
+ *          Kleyton Gabriel  <kleyton_gabriel@hotmail.com>
+ *          Victor Rodrigues <victor.rodrigues.oliveira@gmail.com> 
  * @file sessao.class.php 
- * @copyright 17/04/2013 - 10:40:54 
+ * @copyright 2013
  */
+ 
 class sessao extends sistema {
 
     function __construct($dsn, $username, $passwd, $options) {

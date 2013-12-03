@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @author  Mário Almeida  <prog.almeida@gmail.com> 
- * @file config.inc.php 
- * @copyright 21/02/2013 - 08:24:03 
+ * @author  Mário Almeida    <prog.almeida@gmail.com>
+ *          Kleyton Gabriel  <kleyton_gabriel@hotmail.com>
+ *          Victor Rodrigues <victor.rodrigues.oliveira@gmail.com> 
+ * @file config.inc.php
+ * @copyright 2013
  */
-/**
- * define shorthand directory separator constant
- */
+
 
 // define o caminho absoluto do site
 
